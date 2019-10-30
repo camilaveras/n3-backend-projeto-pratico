@@ -1,6 +1,9 @@
 const express = require ('express');
 const server = express();
 
+//retornar lista de tarefas
+//segunda retornar só por id 
+//retornar 
 var arquivo = require('./lista.json'); // do exercicio 1, Desde que arquivo.js esteja na mesma pasta]
 
 /*
@@ -19,7 +22,7 @@ var arquivo = require('./lista.json'); // do exercicio 1, Desde que arquivo.js e
 server.get('/', function (req, res) {
     let buscarconcluidos = arquivo.filter((tarefa) => {
         return tarefa.concluido ===  'true';
-        
+
     })
 
     console.log(buscarconcluidos);
