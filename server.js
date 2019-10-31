@@ -12,7 +12,7 @@ const server = express();
         res.send(arquivo); // do exercicio 1
     });
 
- /* 2 exercicio retornar só por id 
+ //2 exercicio retornar só por id 
 
     server.get('/id', function (req, res) {       
        let filtrar = arquivo.filter((tarefa) => { 
@@ -22,7 +22,7 @@ const server = express();
          res.send(arquivo); 
 });
 
- mostrar somente iten concluidos, get tarefas/concluidos/filtrar
+ //mostrar somente iten concluidos, get tarefas/concluidos/filtrar
 
     server.get('/concluido', function (req, res) {
         let buscarconcluidos = arquivo.filter((tarefa) => {
@@ -33,7 +33,7 @@ const server = express();
     })
 
 
-//buscando por colaborador*/
+//buscando por colaborador
 
     server.get('/colaborador/:id', function (req, res) {
         let colaborador = arquivo.filter((arquivo) => {
