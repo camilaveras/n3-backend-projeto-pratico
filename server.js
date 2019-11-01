@@ -3,28 +3,27 @@ const server = express();
 
 
 
-//retornar 
-
-
-//1 exercicio retornar lista de tarefas
+//1 exercicio retornar lista de tarefas  http://localhost:3000/tarefas
     var arquivo = require('./lista.json');
     server.get('/tarefas/', function (req, res) { 
-        res.send(arquivo); // do exercicio 1
+        res.send(arquivo); // do exercicio 1       
+
     });
 
- //2 exercicio retornar só por id 
 
-    server.get('/id', function (req, res) {       
+ //2 exercicio retornar só por id : http://localhost:3000/tarefas/id/3
+
+    server.get('/tarefas/id/:id', function (req, res) {    
+        const id = req.params.id   
        let filtrar = arquivo.filter((tarefa) => { 
-            return tarefa.id === 2;       
+            return tarefa.id == id;      
          })
-         console.log(filtrar);      
-         res.send(arquivo); 
+         res.send(filtrar); 
 });
 
- //mostrar somente iten concluidos, get tarefas/concluidos/filtrar
+ //mostrar somente iten concluidos, get http://localhost:3000/tarefas/concluido
 
-    server.get('/concluido', function (req, res) {
+    server.get('/tarefas/:concluido', function (req, res) {
         let buscarconcluidos = arquivo.filter((tarefa) => {
             return tarefa.concluido ===  'true';
 
@@ -33,16 +32,27 @@ const server = express();
     })
 
 
-//buscando por colaborador
+//buscando por colaborador 
 
-    server.get('/colaborador/:id', function (req, res) {
-        let colaborador = arquivo.filter((arquivo) => {
-            return arquivo.nomeColaborador === nomeColaborador;
-            
+
+    server.get('/tarefas/colaborador/:nome', function (req, res) {
+        const name = req.params.nome
+        let colaborador = arquivo.filter((colaborador) => {
+            return colaborador.nomeColaborador === name;
         })
+       
         res.send(colaborador)
+        console.log(colaborador)
+
     })
 
 
 server.listen(3000);
 
+
+
+/*.sort((a, b) => {
+    return a.dataInclusao < b.dataInclusao
+})
+
+*/
