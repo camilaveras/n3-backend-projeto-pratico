@@ -46,13 +46,23 @@ const server = express();
 
     })
 
+//ordenando por data 
 
+server.get('/tarefas/', function (req, res) {
+    let buscardatainclusao = arquivo.filter((tarefa) => {
+        return tarefa.dataInclusao ===  buscardatainclusao;
+
+    })  
+    res.send(buscardatainclusao)
+})
+     //      let datadata = arquivo.sort((a, b) => {
+       // return a.dataInclusao < b.dataInclusao
+
+       
+  const d = new Date( "13-01-2011".replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3") );
+console.log(d);
+
+
+//resultado aqui vai ser: 2011-01-13T02:00:00.000Z
 server.listen(3000);
 
-
-
-/*.sort((a, b) => {
-    return a.dataInclusao < b.dataInclusao
-})
-
-*/
