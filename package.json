@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/camilaveras/n3-backend-projeto-pratico#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.18.2"
   }
 }
